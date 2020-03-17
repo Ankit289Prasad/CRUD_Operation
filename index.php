@@ -1,3 +1,7 @@
+<?php
+require_once("../CRUD_Operation/PHP/Component.php")
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,13 +22,22 @@
         <h1 class="py-4 bg-dark text-light rounded"><i class="fa fa-book"></i> Book Store</h1>
         <div class="d-flex justify-content-center">
             <form action="" method="post" class="w-50">
-                <div class="py-2">
-                    <div class="input-group mb-2">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text bg-warning"><i class="fa fa-id-badge"></i></div>
-                        </div>
-                        <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username">
+                <div class="pt-2">
+                    <?php inputElement("<i class='fa fa-id-badge'></i>","ID","book_id",""); ?>
+                </div>
+                <div class="pt-2">
+                    <?php inputElement("<i class='fa fa-address-book'></i>","Book Name","book_name",""); ?>
+                </div>
+                <div class="row pt-2">
+                    <div class="col">
+                        <?php inputElement("<i class='fa fa-users'></i>","Publisher","book_publisher",""); ?>
                     </div>
+                    <div class="col">
+                        <?php inputElement("<i class='fa fa-dollar'></i>","Price","book_price",""); ?>
+                    </div>
+                </div>
+                <div class="d-flex">
+                    
                 </div>
             </form>
         </div>
