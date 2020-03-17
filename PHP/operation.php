@@ -3,7 +3,7 @@
 require_once("db.php");
 require_once("Component.php");
 
-$conn=Createdb();
+$con=Createdb();
 
 if(isset($_POST['create'])){
     createData();
@@ -27,7 +27,7 @@ function createData(){
     }
 
     }else{
-        echo "Provide data in the textbox";
+        TextNode("success","Provide Data in the Textbox");
     }
 }
 
@@ -39,5 +39,10 @@ function textboxValue($value){
     else {
         return $textbox;
     }
+}
+
+function TextNode($classname,$msg){
+    $element="<h6 class='$classname' style=\"background-color:lightgreen;padding:1em\">$msg</h6>";
+    echo $element;
 }
 ?>

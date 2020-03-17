@@ -1,4 +1,4 @@
-table .btnedit{
-color: lightcoral;
-
+.success{
+    background-color: lightgreen;
+    padding: 1em;
 }
