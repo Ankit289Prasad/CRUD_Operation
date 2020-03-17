@@ -48,9 +48,9 @@ function TextNode($classname,$msg){
 
 function getData(){
     $sql="SELECT *FROM books";
-
+    
     $result=mysqli_query($GLOBALS['con'],$sql);
-
+    return $result;
     if(mysqli_num_rows($result)>0){
         while($row=mysqli_fetch_assoc($result)){
             return $result;
