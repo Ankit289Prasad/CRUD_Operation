@@ -9,6 +9,10 @@ if(isset($_POST['create'])){
     createData();
 }
 
+if(isset($_POST['update'])){
+    UpdateData();
+}
+
 function createData(){
     $bookname=textboxValue("book_name");
     $bookpublisher=textboxValue("book_publisher");
@@ -55,6 +59,28 @@ function getData(){
         while($row=mysqli_fetch_assoc($result)){
             return $result;
         }
+    }
+}
+
+function UpdateData(){
+    $bookid=textboxValue("book_id");
+    $bookname=textboxValue("book_name");
+    $bookpublisher=textboxValue("book_publisher");
+    $bookprice=textboxValue("book_price");
+
+    if($bookname&&$bookprice&&$bookpublisher){
+        $sql="
+        UPDATE books SET book_name='$bookname',book_publisher='$bookpublisher',book_price='$bookprice' WHERE id='$bookid'
+        ";
+        if(mysqli_query($GLOBALS['con'],$sql)){
+            TextNode("success","Data Successfully Upadted..!");
+        }
+        else{
+            TextNode("error","Unable to Update Data");
+        }
+    }
+    else{
+        TextNode("error","Select Data Using Edit Icon");
     }
 }
 ?>

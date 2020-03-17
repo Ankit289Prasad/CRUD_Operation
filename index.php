@@ -57,7 +57,7 @@ require_once("../CRUD_Operation/PHP/operation.php");
                 </thead>
                 <tbody id="tbody">
                     <?php
-                        if(isset($_POST['read'])||isset($_POST['create'])){
+                        if(isset($_POST['read'])||isset($_POST['create'])||isset($_POST['update'])){
                             $result=getData();
                             if($result){
                                 while($row=mysqli_fetch_assoc($result)){?>
@@ -65,7 +65,7 @@ require_once("../CRUD_Operation/PHP/operation.php");
                                     <td data-id="<?php echo $row['id']; ?>"><?php echo $row['id'];?></td>
                                     <td data-id="<?php echo $row['id']; ?>"><?php echo $row['book_name'];?></td>
                                     <td data-id="<?php echo $row['id']; ?>"><?php echo $row['book_publisher'];?></td>
-                                    <td data-id="<?php echo $row['id']; ?>"><?php echo $row['book_price'];?></td>
+                                    <td data-id="<?php echo $row['id']; ?>"><?php echo '$ '.$row['book_price'];?></td>
                                     <td><i class="fa fa-edit btnedit" style="color: lightsalmon" data-id="<?php echo $row['id']; ?>"></i></td>
                                 </tr>
                                 

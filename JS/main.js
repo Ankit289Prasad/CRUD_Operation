@@ -9,7 +9,7 @@ $(".btnedit").click(e=>{
     id.val(textvalues[0]);
     bookname.val(textvalues[1]);
     bookpublisher.val(textvalues[2]);
-    bookprice.val(textvalues[3]);
+    bookprice.val(textvalues[3].replace("$",""));
 })
 
 function displayData(e){
