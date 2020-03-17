@@ -36,13 +36,35 @@ require_once("../CRUD_Operation/PHP/Component.php")
                         <?php inputElement("<i class='fa fa-dollar'></i>","Price","book_price",""); ?>
                     </div>
                 </div>
-                <div class="d-flex">
+                <div class="d-flex justify-content-center">
                     <?php buttonElement("btn-create","btn btn-success","<i class='fa fa-plus'></i>","create","dat-toggle='toltip' data-placement='buttom' title='Create'");?>
                     <?php buttonElement("btn-id","btn btn-primary","<i class='fa fa-refresh'></i>","read","dat-toggle='toltip' data-placement='buttom' title='Read'");?>
                     <?php buttonElement("btn-update","btn btn-light border","<i class='fa fa-pencil'></i>","update","dat-toggle='toltip' data-placement='buttom' title='Update'");?>
                     <?php buttonElement("btn-delete","btn btn-danger","<i class='fa fa-trash'></i>","delete","dat-toggle='toltip' data-placement='buttom' title='Delete'");?>
                 </div>
             </form>
+        </div>
+        <div class="d-flex table-data" style="margin:1em 10em;">
+            <table class="table table-striped table-dark">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Book Name</th>
+                        <th>Publisher</th>
+                        <th>Book Price</th>
+                        <th>Edit</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                    <tr>
+                        <td>1</td>
+                        <td>Book Name</td>
+                        <td>Ankit</td>
+                        <td>94.99</td>
+                        <td><i class="fa fa-edit btnedit" style="color:lightcoral"></i></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </main>
