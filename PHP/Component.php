@@ -11,3 +11,10 @@ function inputElement($icon,$placeholder,$name,$value){
     ";
     echo $ele;
 }
+
+function buttonElement($btnid,$styleclass,$text,$name,$attr){
+    $btn ="
+    <buttom name='$name''$attr' class='$styleclass' id='$btnid'>$text</button>
+    ";
+    echo $btn;
+}

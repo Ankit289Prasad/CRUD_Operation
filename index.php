@@ -37,7 +37,10 @@ require_once("../CRUD_Operation/PHP/Component.php")
                     </div>
                 </div>
                 <div class="d-flex">
-                    
+                    <?php buttonElement("btn-create","btn btn-success","<i class='fa fa-plus'></i>","create","dat-toggle='toltip' data-placement='buttom' title='Create'");?>
+                    <?php buttonElement("btn-id","btn btn-primary","<i class='fa fa-refresh'></i>","read","dat-toggle='toltip' data-placement='buttom' title='Read'");?>
+                    <?php buttonElement("btn-update","btn btn-light border","<i class='fa fa-pencil'></i>","update","dat-toggle='toltip' data-placement='buttom' title='Update'");?>
+                    <?php buttonElement("btn-delete","btn btn-danger","<i class='fa fa-trash'></i>","delete","dat-toggle='toltip' data-placement='buttom' title='Delete'");?>
                 </div>
             </form>
         </div>
