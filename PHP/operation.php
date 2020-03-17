@@ -20,14 +20,14 @@ function createData(){
         VALUES('$bookname','$bookpublisher','$bookprice');";
 
     if(mysqli_query($GLOBALS['con'],$sql)){
-        echo "Record Successfully inserted...!";
+        TextNode("success","Record Successfully Inserted..!");
     }    
     else{
         echo "ERROR";
     }
 
     }else{
-        TextNode("success","Provide Data in the Textbox");
+        TextNode("error","Provide Data in the Textbox");
     }
 }
 
@@ -42,7 +42,19 @@ function textboxValue($value){
 }
 
 function TextNode($classname,$msg){
-    $element="<h6 class='$classname' style=\"background-color:lightgreen;padding:1em\">$msg</h6>";
+    $element="<h6 class='$classname'>$msg</h6>";
     echo $element;
+}
+
+function getData(){
+    $sql="SELECT *FROM books";
+
+    $result=mysqli_query($GLOBALS['con'],$sql);
+
+    if(mysqli_num_rows($result)>0){
+        while($row=mysqli_fetch_assoc($result)){
+            return $result;
+        }
+    }
 }
 ?>

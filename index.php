@@ -13,7 +13,7 @@ require_once("../CRUD_Operation/PHP/operation.php");
     <title>BOOKS</title>
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="CSS/main.css">
+    <link rel="stylesheet" type="text/css" href="CSS/ain.css">
 </head>
 
 <body>
@@ -56,13 +56,25 @@ require_once("../CRUD_Operation/PHP/operation.php");
                     </tr>
                 </thead>
                 <tbody id="tbody">
-                    <tr>
-                        <td>1</td>
-                        <td>Book Name</td>
-                        <td>Ankit</td>
-                        <td>94.99</td>
-                        <td><i class="fa fa-edit btnedit" style="color:lightcoral"></i></td>
-                    </tr>
+                    <?php
+                        if(isset($_POST['read'])){
+                            $result=getData();
+                            
+                            if($result){
+                                while($row=mysqli_fetch_assoc($result)){?>
+                                <tr>
+                                    <td><?php echo $row['id'];?></td>
+                                    <td><?php echo $row['book_name'];?></td>
+                                    <td><?php echo $row['book_publisher'];?></td>
+                                    <td><?php echo $row['book_price'];?></td>
+                                </tr>
+                                
+                                <?php
+                                }
+                                
+                            }
+                        }
+                    ?>
                 </tbody>
             </table>
         </div>
