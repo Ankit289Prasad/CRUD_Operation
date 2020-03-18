@@ -13,6 +13,14 @@ if(isset($_POST['update'])){
     UpdateData();
 }
 
+if(isset($_POST['delete'])){
+    deleteRecord();
+}
+
+if(isset($_POST['deleteall'])){
+    deleteAll();
+}
+
 function createData(){
     $bookname=textboxValue("book_name");
     $bookpublisher=textboxValue("book_publisher");
@@ -83,4 +91,57 @@ function UpdateData(){
         TextNode("error","Select Data Using Edit Icon");
     }
 }
-?>
+
+function deleteRecord(){
+    $bookid=(int)textboxValue("book_id");
+
+    if($bookid){
+    $sql="DELETE FROM books WHERE id=$bookid";
+    if(mysqli_query($GLOBALS['con'],$sql))
+    {
+        TextNode("success","Record Deleted Successfully..!");
+
+    }else{
+        TextNode("error","Unable to Delete Record...!");
+    }
+}
+    else{
+        TextNode("error","Select Data Using Edit Icon");
+    }
+}
+
+function deleteBtn(){
+    $result=getData();
+    $i=0;
+    if($result){
+        while($row=mysqli_fetch_assoc($result)){
+            $i++;
+            if($i>3){
+                buttonElement("btn-deleteall","btn btn-danger","<i class='fa fa-trash'></i> Delete All","deleteall","");
+                return;
+            }
+        }
+    }
+}
+
+function deleteAll(){
+    $sql="DROP TABLE books";
+
+    if(mysqli_query($GLOBALS['con'],$sql)){
+        TextNode("success","All Records Deleted Successfully..!");
+        Createdb();
+    }else{
+        TextNode("error","Something Went Wrong :-( Unable to Delete Records...!");
+    }
+}
+
+function setID(){
+    $getid=getData();
+    $id=0;
+    if($getid){
+        while($row=mysqli_fetch_assoc($getid)){
+            $id=$row['id'];
+        }
+    }
+    return ($id+1);
+}

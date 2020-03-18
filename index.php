@@ -23,7 +23,7 @@ require_once("../CRUD_Operation/PHP/operation.php");
         <div class="d-flex justify-content-center">
             <form action="" method="post" class="w-50">
                 <div class="pt-2">
-                    <?php inputElement("<i class='fa fa-id-badge'></i>","ID","book_id",""); ?>
+                    <?php inputElement("<i class='fa fa-id-badge'></i>","ID","book_id",setID()); ?>
                 </div>
                 <div class="pt-2">
                     <?php inputElement("<i class='fa fa-address-book'></i>","Book Name","book_name",""); ?>
@@ -41,6 +41,7 @@ require_once("../CRUD_Operation/PHP/operation.php");
                     <?php buttonElement("btn-id","btn btn-primary","<i class='fa fa-refresh'></i>","read","dat-toggle='toltip' data-placement='buttom' title='Read'");?>
                     <?php buttonElement("btn-update","btn btn-light border","<i class='fa fa-pencil'></i>","update","dat-toggle='toltip' data-placement='buttom' title='Update'");?>
                     <?php buttonElement("btn-delete","btn btn-danger","<i class='fa fa-trash'></i>","delete","dat-toggle='toltip' data-placement='buttom' title='Delete'");?>
+                    <?php deleteBtn();?>
                 </div>
             </form>
         </div>
@@ -57,7 +58,7 @@ require_once("../CRUD_Operation/PHP/operation.php");
                 </thead>
                 <tbody id="tbody">
                     <?php
-                        if(isset($_POST['read'])||isset($_POST['create'])||isset($_POST['update'])){
+                        if(isset($_POST['read'])||isset($_POST['create'])||isset($_POST['update'])||isset($_POST['delete'])){
                             $result=getData();
                             if($result){
                                 while($row=mysqli_fetch_assoc($result)){?>
@@ -66,7 +67,7 @@ require_once("../CRUD_Operation/PHP/operation.php");
                                     <td data-id="<?php echo $row['id']; ?>"><?php echo $row['book_name'];?></td>
                                     <td data-id="<?php echo $row['id']; ?>"><?php echo $row['book_publisher'];?></td>
                                     <td data-id="<?php echo $row['id']; ?>"><?php echo '$ '.$row['book_price'];?></td>
-                                    <td><i class="fa fa-edit btnedit" style="color: lightsalmon" data-id="<?php echo $row['id']; ?>"></i></td>
+                                    <td><i class="fa fa-edit btnedit" style="color: lightsalmon" data-id="<?php echo $row['id']; ?>"></i></td>                             
                                 </tr>
                                 
                                 <?php

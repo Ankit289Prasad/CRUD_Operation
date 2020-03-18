@@ -13,6 +13,6 @@ function inputElement($icon,$placeholder,$name,$value){
 }
 
 function buttonElement($btnid,$styleclass,$text,$name,$attr){
-    $btn ="<button name='$name''$attr' class='$styleclass' id='$btnid' style='padding:0.5em 2.4em;margin:1.5em 0.6em'>$text</button>";
+    $btn ="<button name='$name''$attr' class='$styleclass' id='$btnid' style='padding:0.3em 1.4em;margin:1.5em 0.5em'>$text</button>";
     echo $btn;
 }
