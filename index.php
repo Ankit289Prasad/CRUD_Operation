@@ -19,10 +19,11 @@ require_once("../CRUD_Operation/PHP/operation.php");
 <body>
 <main>
     <div class="container text-center">
-        <h1 class="py-4 bg-dark text-light rounded"><i class="fa fa-book"></i> Book Store</h1>
+        <h1 class="py-4 bg-dark text-light rounded"><i class="fa fa-book"></i> Book Store</br></h1>
+        <p id="footer" style="font-size:70%; margin: -0.67em 0em;" class="bg-dark text-light rounded">&copy; Ankit Prasad : 2020</p>
         <div class="d-flex justify-content-center">
             <form action="" method="post" class="w-50">
-                <div class="pt-2">
+                <div class="pt-5">
                     <?php inputElement("<i class='fa fa-id-badge'></i>","ID","book_id",setID()); ?>
                 </div>
                 <div class="pt-2">
